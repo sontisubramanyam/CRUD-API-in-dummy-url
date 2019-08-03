@@ -1,0 +1,124 @@
+<div class="mainheadercls">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a href="#" class="navbar-brand ">
+      <img src="assets\logo.png" style="height: 50px; width: 50px; margin-left:25px;">
+    </a>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse navbar-nav" style="margin-left:25px" id="navbarCollapse">
+      <div class="navbar-nav">
+        <a href="#" class=" nav-item nav-link active col-md-5">Home</a>
+        <a href="#" class=" nav-item nav-link active col-md-5">About</a>
+        <a href="#" class=" nav-item nav-link active col-md-5">Contact</a>
+        <a href="#" class=" nav-item nav-link active col-md-5">Reports</a>
+        <a href="#" class=" nav-item nav-link active col-md-5">Login</a>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Employee</th>
+      <th scope="col">Salary</th>
+      <th scope="col">Age</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of userData">
+    <td>{{employee.id}}</td>
+    <td>{{employee.employee_age}}</td>
+    <td>{{employee.employee_name}}</td>
+    <td>{{employee.employee_salary}}</td>
+    <td><button data-toggle="modal" data-target="#myModal">Add Profile</button></td>
+    <td><button data-toggle="modal" data-target="#myModalU" (click)="idU(employee.id)">Update</button></td>
+    <td><button (click)="delete(employee.id)">Delete</button></td>
+  </tr>
+  </tbody>
+
+
+</table>
+
+
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h5 class="modal-title">Modal Heading</h5>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form [formGroup]="formlist">
+          <div class="form-group">
+            <label for="email">name:</label>
+            <input type="text" formControlName="name" class="form-control" id="email">
+          </div>
+          <div class="form-group">
+            <label for="pwd">salary:</label>
+            <input type="text" formControlName="salary" class="form-control" id="pwd">
+          </div>
+          <div class="form-group">
+            <label for="pwd">age:</label>
+            <input type="text" formControlName="age" class="form-control" id="pwd">
+          </div>
+
+          <div class="form-group form-check">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox">
+            </label>
+          </div>
+          <button type="button" class="btn btn-primary" (click)="saveData()" data-dismiss="modal">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="myModalU">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h5 class="modal-title">update details</h5>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form [formGroup]="userlist">
+          <div class="form-group">
+            <label for="email">name:</label>
+            <input type="text" formControlName="name" class="form-control" id="email">
+          </div>
+          <div class="form-group">
+            <label for="pwd">salary:</label>
+            <input type="text" formControlName="salary" class="form-control" id="pwd">
+          </div>
+          <div class="form-group">
+            <label for="pwd">age:</label>
+            <input type="text" formControlName="age" class="form-control" id="pwd">
+          </div>
+
+          <div class="form-group form-check">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox">
+            </label>
+          </div>
+          <button type="submit" class="btn btn-primary" (click)="update()" data-dismiss="modal">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

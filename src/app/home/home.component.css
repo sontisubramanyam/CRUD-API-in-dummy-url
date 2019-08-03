@@ -1,0 +1,14 @@
+.mainheadercls{
+    margin-bottom: 5px;
+    width: 100%;
+    
+}
+table,tr, th,thead, td{
+    border: 1px solid black !important;
+    margin-left: 0px;
+    table-layout: fixed;
+    width: 100%;
+    min-width: 400px;   
+}
+
+
